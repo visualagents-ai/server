@@ -1,6 +1,7 @@
 uvicorn[standard]==0.20.0
 gunicorn==22.0.0
 fastapi[all]==0.88.0
+pymongo
 mypy
 isort
 flake8
