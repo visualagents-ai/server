@@ -5,10 +5,10 @@ ENV GROUP_ID=1000 \
 RUN apt-get update && apt-get install -y apt-transport-https ca-certificates supervisor procps cron python3.12-venv python3-gdbm wget gnupg unzip curl
 RUN mkdir /opt/visualagents
 WORKDIR /opt/visualagents
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 RUN python3 -m venv venv
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+ENV PATH="venv/bin:$PATH"
 RUN ["venv/bin/python3", "-m", "pip", "install", "--upgrade", "pip", "wheel"]
 RUN apt-get install -y  python3-wheel
 COPY requirements.txt requirements.txt
